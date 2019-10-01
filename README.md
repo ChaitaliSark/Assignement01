@@ -357,3 +357,48 @@ namespace Assignment_2
     }
 }
 
+TriangleSolver 
+
+namespace Assignment_2
+{
+    public static class TriangleSolver
+    {
+
+        public static string Analyze(int length, int breadth, int height)
+        {
+            if (!CheckForValidTriangle(length, breadth, height))
+                return "Numbers does not form a triangle";
+
+            if (IsTriangleEquilateral(length, breadth, height))
+                return "Numbers form a triangle and the triangle is Equilateral";
+            else if (IsTriangleIsosceles(length, breadth, height))
+                return "Numbers form a triangle and the triangle is Isosceles";
+            else
+                return "Numbers form a triangle and the triangle is Scalene";
+        }
+       
+
+        private static bool CheckForValidTriangle(int length, int breadth, int height) //encapsulated the method deep inside this class because it acts as an helper to this class so doesnt need to expose it outside the class
+        {
+            if (length + breadth <= height || length + height <= breadth || breadth + height <= length)
+                return false;
+            else
+                return true;
+        }
+
+        private static bool IsTriangleEquilateral(int length, int breadth, int height) //encapsulated the method deep inside this class because it acts as an helper to this class so doesnt need to expose it outside the class
+        {
+            if (length == breadth && breadth == height)
+                return true;
+            return false;
+        }
+
+        private static bool IsTriangleIsosceles(int length, int breadth, int height) //encapsulated the method deep inside this class because it acts as an helper to this class so doesnt need to expose it outside the class
+        {
+            if (length == breadth || length == height || breadth == height)
+                return true;
+            return false;
+        }
+    }
+}
+
