@@ -402,3 +402,192 @@ namespace Assignment_2
     }
 }
 
+TestCases
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using NUnit.Framework;
+using Assignment_2;
+
+
+namespace TestRun
+{
+    [TestFixture]
+    public class Class1
+    {
+        [Test]
+
+        public void InputValueOfLength5_InputValueOfBreadth5_InputValueOfHeight5_OutputEqualToEquilateralTriangle()
+        {
+
+            //Arrange
+            int length = 5;
+            int breadth = 5;
+            int height = 5;
+            string Triangle = "Numbers form a triangle and the triangle is Equilateral";
+
+            //Act
+            string checkTriangleType = TriangleSolver.Analyze(length, breadth, height);
+
+            //TriangleSolver testTriangle = new Triangle
+            //int l = TriangleSolver.GetLength();
+
+            //Assert
+            Assert.AreEqual(checkTriangleType, Triangle);
+        }
+
+        [Test]
+
+        public void InputValueOfLength66_InputValueOfBreadth5_InputValueOfHeight2_OutputEqualToNotATriangle()
+        {
+
+            //Arrange
+            int length = 66;
+            int breadth = 5;
+            int height = 2;
+            string Triangle = "Numbers does not form a triangle";
+
+            //Act
+            string checkTriangleType = TriangleSolver.Analyze(length, breadth, height);
+
+            //TriangleSolver testTriangle = new Triangle
+            //int l = TriangleSolver.GetLength();
+
+            //Assert
+            Assert.AreEqual(checkTriangleType, Triangle);
+        }
+
+        [Test]
+
+        public void InputValueOfLength20_InputValueOfBreadth20_InputValueOfHeight50_OutputEqualToIsoscelesTriangle()
+        {
+
+            //Arrange
+            int length = 20;
+            int breadth = 20;
+            int height = 30;
+            string Triangle = "Numbers form a triangle and the triangle is Isosceles";
+
+            //Act
+            string checkTriangleType = TriangleSolver.Analyze(length, breadth, height);
+
+            //TriangleSolver testTriangle = new Triangle
+            //int l = TriangleSolver.GetLength();
+
+            //Assert
+            Assert.AreEqual(checkTriangleType, Triangle);
+        }
+
+        [Test]
+
+        public void InputValueOfLength55_InputValueOfBreadth66_InputValueOfHeight77_OutputEqualToScaleneTriangle()
+        {
+
+            //Arrange
+            int length = 55;
+            int breadth = 66;
+            int height = 77;
+            string Triangle = "Numbers form a triangle and the triangle is Scalene";
+
+            //Act
+            string checkTriangleType = TriangleSolver.Analyze(length, breadth, height);
+
+            //TriangleSolver testTriangle = new Triangle
+            //int l = TriangleSolver.GetLength();
+
+            //Assert
+            Assert.AreEqual(checkTriangleType, Triangle);
+        }
+
+        [Test]
+
+        public void InputValueOfLength88_InputValueOfBreadth99_InputValueOfHeight109_OutputEqualToScaleneTriangle()
+        {
+
+            //Arrange
+            int length = 88;
+            int breadth = 99;
+            int height = 109;
+            string Triangle = "Numbers form a triangle and the triangle is Scalene";
+
+            //Act
+            string checkTriangleType = TriangleSolver.Analyze(length, breadth, height);
+
+            //TriangleSolver testTriangle = new Triangle
+            //int l = TriangleSolver.GetLength();
+
+            //Assert
+            Assert.AreEqual(checkTriangleType, Triangle);
+        }
+
+        [Test]
+
+        public void InputValueOfLength50_InputValueOfBreadth50_InputValueOfHeight70_OutputEqualToIsoscelesTriangle()
+        {
+
+            //Arrange
+            int length = 50;
+            int breadth = 50;
+            int height = 70;
+            string Triangle = "Numbers form a triangle and the triangle is Isosceles";
+
+            //Act
+            string checkTriangleType = TriangleSolver.Analyze(length, breadth, height);
+
+            //TriangleSolver testTriangle = new Triangle
+            //int l = TriangleSolver.GetLength();
+
+            //Assert
+            Assert.AreEqual(checkTriangleType, Triangle);
+        }
+
+        [Test]
+
+        public void InputValueOfLength16_InputValueOfBreadth0_InputValueOfHeight2_OutputEqualToNotATriangle()
+        {
+
+            //Arrange
+            int length = 16;
+            int breadth = 0;
+            int height = 2;
+            string Triangle = "Numbers does not form a triangle";
+
+            //Act
+            string checkTriangleType = TriangleSolver.Analyze(length, breadth, height);
+
+            //TriangleSolver testTriangle = new Triangle
+            //int l = TriangleSolver.GetLength();
+
+            //Assert
+            Assert.AreEqual(checkTriangleType, Triangle);
+        }
+
+        [Test]
+
+        public void InputValueOfLength20_InputValueOfBreadth20_InputValueOfHeight20_OutputEqualToEquilateralTriangle()
+        {
+
+            //Arrange
+            int length = 20;
+            int breadth = 20;
+            int height = 20;
+            string Triangle = "Numbers form a triangle and the triangle is Equilateral";
+
+            //Act
+            string checkTriangleType = TriangleSolver.Analyze(length, breadth, height);
+
+            //TriangleSolver testTriangle = new Triangle
+            //int l = TriangleSolver.GetLength();
+
+            //Assert
+            Assert.AreEqual(checkTriangleType, Triangle);
+        }
+
+
+
+    }
+}
+
