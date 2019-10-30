@@ -178,3 +178,213 @@ namespace AwesomeCalculator
         }
     }
 }
+
+
+Assignment#3 Test Cases:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using AwesomeCalculator;
+using NUnit.Framework;
+
+
+namespace AwesomeCalculatorTest
+{
+    [TestFixture]
+    public class Class1
+    {
+
+        [Test]
+        public void GetAddition_Input3point4and5point6_Returns9point0()
+        {
+            double num1 = 3.4;
+            double num2 = 5.6;
+
+            double result = num1 + num2;
+            Calc testCalc = new Calc(num1, num2); // Arrange
+            double actualResult = testCalc.GetAddition(); // Act
+            Assert.AreEqual(result, actualResult);
+
+        }
+
+        [Test]
+
+        public void GetAddition_Input10point0and2point0_Returns12point0()
+        {
+            double num1 = 10.0;
+            double num2 = 2.0;
+
+            double result = num1 + num2;
+            Calc testCalc = new Calc(num1, num2); // Arrange
+            double actualResult = testCalc.GetAddition(); // Act
+            Assert.AreEqual(result, actualResult);
+        }
+
+        [Test]
+
+        public void GetAddition_Input2point0and3point0_Returns5point0()
+        {
+            double num1 = 2.0;
+            double num2 = 3.0;
+
+            double result = num1 + num2;
+            Calc testCalc = new Calc(num1, num2); // Arrange
+            double actualResult = testCalc.GetAddition(); // Act
+            Assert.AreEqual(result, actualResult);
+        }
+
+        [Test]
+
+        public void GetAddition_Input7point4and3point6_Returns11point0() {
+            double num1 = 7.4;
+            double num2 = 3.6;
+
+            double result = num1 + num2;
+            Calc testCalc = new Calc(num1, num2); // Arrange
+            double actualResult = testCalc.GetAddition(); // Act
+            Assert.AreEqual(result, actualResult);
+        }
+
+
+        [Test]
+
+        public void GetMultiplication_Input5point0and2point0_Returns10point0()
+        {
+            double num1 = 5.0;
+            double num2 = 2.0;
+
+            double result = num1 * num2;
+            Calc testCalc = new Calc(num1, num2); // Arrange
+            double actualResult = testCalc.GetMultiplication(); // Act
+            Assert.AreEqual(result, actualResult);
+        }
+
+        [Test]
+
+        public void GetMultiplication_Input6point0and2point0_Returns12point0()
+        {
+            double num1 = 6.0;
+            double num2 = 2.0;
+
+            double result = num1 * num2;
+            Calc testCalc = new Calc(num1, num2); // Arrange
+            double actualResult = testCalc.GetMultiplication(); // Act
+            Assert.AreEqual(result, actualResult);
+        }
+
+        [Test]
+
+        public void GetMultiplication_Input4point0and2point0_Returns8point0()
+        {
+            double num1 = 4.0;
+            double num2 = 2.0;
+
+            double result = num1 * num2;
+            Calc testCalc = new Calc(num1, num2); // Arrange
+            double actualResult = testCalc.GetMultiplication(); // Act
+            Assert.AreEqual(result, actualResult);
+        }
+
+        [Test]
+
+        public void GetMultiplication_Input10point0and2point0_Returns20point0()
+        {
+            double num1 = 10.0;
+            double num2 = 2.0;
+
+            double result = num1 * num2;
+            Calc testCalc = new Calc(num1, num2); // Arrange
+            double actualResult = testCalc.GetMultiplication(); // Act
+            Assert.AreEqual(result, actualResult);
+        }
+
+
+
+
+
+                [Test]
+
+        public void GetSubtraction_Input4point0and1point0_Returns3point0()
+        {
+            double num1 = 4.0;
+            double num2 = 1.0;
+
+            double result = num1 - num2;
+            Calc testCalc = new Calc(num1, num2); // Arrange
+            double actualResult = testCalc.GetSubtraction(); // Act
+            Assert.AreEqual(result, actualResult);
+        }
+
+        [Test]
+
+        public void GetSubtraction_Input5point9and1point9_Returns4point0()
+        {
+            double num1 = 5.9;
+            double num2 = 1.9;
+
+            double result = num1 - num2;
+            Calc testCalc = new Calc(num1, num2); // Arrange
+            double actualResult = testCalc.GetSubtraction(); // Act
+            Assert.AreEqual(result, actualResult);
+        }
+
+        [Test]
+
+        public void GetSubtraction_Input15point0and7point0_Returns8point0()
+        {
+            double num1 = 15.0;
+            double num2 = 7.0;
+
+            double result = num1 - num2;
+            Calc testCalc = new Calc(num1, num2); // Arrange
+            double actualResult = testCalc.GetSubtraction(); // Act
+            Assert.AreEqual(result, actualResult);
+        }
+
+
+
+
+        [Test]
+
+        public void GetDivision_Input7point0and3point5_Returns2point0()
+        {
+            double num1 = 7.0;
+            double num2 = 3.5;
+
+            double result = num1 / num2;
+            Calc testCalc = new Calc(num1, num2); // Arrange
+            double actualResult = testCalc.GetDivision(); // Act
+            Assert.AreEqual(result, actualResult);
+        }
+
+        [Test]
+
+        public void GetDivision_Input5point0and2point5_Returns2point0()
+        {
+            double num1 = 5.0;
+            double num2 = 2.5;
+
+            double result = num1 / num2;
+            Calc testCalc = new Calc(num1, num2); // Arrange
+            double actualResult = testCalc.GetDivision(); // Act
+            Assert.AreEqual(result, actualResult);
+        }
+
+        [Test]
+
+        public void GetDivision_Input14point2and2point2_Returns7point0()
+        {
+            double num1 = 14.0;
+            double num2 = 2.0;
+
+            double result = num1 / num2;
+            Calc testCalc = new Calc(num1, num2); // Arrange
+            double actualResult = testCalc.GetDivision(); // Act
+            Assert.AreEqual(result, actualResult);
+        }
+
+    }
+}
