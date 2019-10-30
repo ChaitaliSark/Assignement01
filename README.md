@@ -1,182 +1,4 @@
-# Assignement01
-Software testing methodologies
-using System;
-
-namespace Assignment01
-{
-
-        public enum Choices
-    {
-        GetRectangleLength = 1,
-        ChangeRectangleLength = 2,
-        GetRectangleWidth = 3,
-        ChangeRectangleWidth = 4,
-        GetRectanglePerimeter = 5,
-        GetRectangleArea = 6,
-        Exit = 7
-    }
-    class Program
-    {
-        static Rectangle rectangle;
-        static int length, width;
-        static void Main(string[] args)
-        {
-            rectangle = new Rectangle(); 
-            length = GetLength();
-            width = GetWidth();
-            rectangle = new Rectangle(length, width);
-            GetUserInput();
-        }
-
-        static void HandleUserChoice(int choice)
-        {
-            switch (choice)
-            {
-                case (int)Choices.GetRectangleLength:
-                    Console.WriteLine("Length {0}", rectangle.GetLength());
-                    break;
-                case (int)Choices.ChangeRectangleLength:
-                    length = GetLength();
-                    Console.WriteLine("Set Length {0}", rectangle.SetLength(length));
-                    break;
-                case (int)Choices.GetRectangleWidth:
-                    Console.WriteLine("Width {0}", rectangle.GetWidth());
-                    break;
-                case (int)Choices.ChangeRectangleWidth:
-                    width = GetWidth();
-                    Console.WriteLine("Set Width {0}", rectangle.SetWidth(width));
-                    break;
-                case (int)Choices.GetRectanglePerimeter:
-                    Console.WriteLine("Perimeter {0}", rectangle.GetPerimeter());
-                    break;
-                case (int)Choices.GetRectangleArea:
-                    Console.WriteLine("Area {0}", rectangle.GetArea());
-                    break;
-
-            }
-        }
-static void GetUserInput()
-        {
-            int choice;
-            ShowMenu();
-            bool valid;
-            while (true)
-            {
-                valid = TryGetUserInput("Please enter your choice", out choice);
-                if (!valid)
-                    ShowMenu();
-                else
-                {
-                    if (choice == (int)Choices.Exit)
-                        Environment.Exit(0);
-                    HandleUserChoice(choice);
-                }
-            }
-        }
-
-        static bool TryGetUserInput(string message, out int choice)
-        {
-            Console.WriteLine(message);
-            choice = 0;
-            try
-            {
-                if (!int.TryParse(Console.ReadLine(), out choice))
-                    throw new FormatException("Choice should be an integer value");
-                else if (choice < 0 || choice > 7)
-                {
-                    Console.WriteLine("InCorrect choice");
-                    return false;
-                }
-                return true;
-            }
-            catch (FormatException ex)
-            {
-                Console.WriteLine(ex.Message);
-                return false;
-            }
-        }
-
-
-        static int GetLength()
-        {
-            int length = 0;
-            bool valid = TryGetLength("Please enter the Length", out length);
-            while (!valid)
-            {
-                valid = TryGetLength("Please enter the Length", out length);
-            }
-            return length;
-        }
-        static bool TryGetLength(string message, out int length)
-        {
-            Console.WriteLine(message);
-            length = 0;
-            try
-            {
-                if (!int.TryParse(Console.ReadLine(), out length))
-                    throw new FormatException("Length should be an integer value");
-                else if (length < 0)
-                {
-                    Console.WriteLine("Length should be greater than 0");
-                    return false;
-                }
-                return true;
-            }
-            catch (FormatException ex)
-            {
-                Console.WriteLine(ex.Message);
-                return false;
-            }
-        }
-
-        static int GetWidth()
-        {
-            int width = 0;
-            bool valid = TryGetWidth("Please enter the Width", out width);
-            while (!valid)
-            {
-                valid = TryGetWidth("Please enter the Width", out width);
-            }
-            return width;
-        }
-        static bool TryGetWidth(string message, out int width)
-        {
-            Console.WriteLine(message);
-            width = 0;
-            try
-            {
-                if (!int.TryParse(Console.ReadLine(), out width))
-                    throw new FormatException("Width should be an integer value");
-                else if (width < 0)
-                {
-                    Console.WriteLine("Width should be greater than 0");
-                    return false;
-                }
-                return true;
-            }
-            catch (FormatException ex)
-            {
-                Console.WriteLine(ex.Message);
-                return false;
-            }
-        }
-        
-        static void ShowMenu()
-        {
-            Console.WriteLine("1 = Get Rectangle Length");
-            Console.WriteLine("2 = Change Rectangle Length");
-            Console.WriteLine("3 = Get Rectangle Width");
-            Console.WriteLine("4 = Change Rectangle Width");
-            Console.WriteLine("5 = Get Rectangle Perimeter");
-            Console.WriteLine("6 = Get Rectangle Area");
-            Console.WriteLine("7 = Exit");
-            Console.WriteLine(" ");
-        }
-    }
-}
-
-
-Assignment 02
+Assignment 3
 
 using System;
 using System.Collections.Generic;
@@ -184,410 +6,175 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assignment_2
+namespace AwesomeCalculator
 {
-
-    public enum Choices
-    {
-        TriangleDimensions = 1,
-        Exit = 2
-    }
-
     class Program
+
     {
-        static void Main(string[] args)
+        public static int ValidateMenuSelection()
         {
-            GetUserInput();
-        }
-        
-        static void GetUserInput()
-        {
-            int choice;
-            ShowMenu();
-            bool valid;
-            while (true)
+            string userInput = "";
+            bool validMenuSelect = false;
+
+            while (validMenuSelect == false)
             {
-                valid = TryGetUserInput("Please enter your choice!", out choice);
-                if (!valid)
-                    ShowMenu();
+                Console.WriteLine("1 = Get First Number");
+                Console.WriteLine("2 = Change First Number");
+                Console.WriteLine("3 = Get Second Number");
+                Console.WriteLine("4 = Change Second Number");
+                Console.WriteLine("5 = Perform Addition");
+                Console.WriteLine("6 = Perform Subtraction");
+                Console.WriteLine("7 = Perform Multiplication");
+                Console.WriteLine("8 = Perform Division");
+                Console.WriteLine("9 = Exit\n");
+
+                Console.WriteLine("Please select an option, by entering a number:\n");
+                userInput = Console.ReadLine();
+
+                if (userInput != "1" &&
+                    userInput != "2" &&
+                    userInput != "3" &&
+                    userInput != "4" &&
+                    userInput != "5" &&
+                    userInput != "6" &&
+                    userInput != "7" &&
+                    userInput != "8" &&
+                    userInput != "9")
+                {
+                    Console.WriteLine("That's not a valid menu option, please try again:\n");
+                }
                 else
                 {
-                    if (choice == (int)Choices.Exit)
-                        Environment.Exit(0);
-                    HandleUserChoice(choice);
+                    validMenuSelect = true;
                 }
             }
+
+            Console.WriteLine();
+            return int.Parse(userInput);
         }
 
-        static void HandleUserChoice(int choice)
+        public static double ValidateUserInput(string chosenNumber)
         {
-            switch (choice)
+            double aNumber = 1;
+            bool isValid = false;
+
+            while (isValid == false)
             {
-                case (int)Choices.TriangleDimensions:
-                    int length = GetLength();
-                    int breadth = GetBreadth();
-                    int height = GetHeight();
-                    Console.WriteLine(TriangleSolver.Analyze(length, breadth, height));
-                    break;
-            }
-        }
-        static bool TryGetUserInput(string message, out int choice)
-        {
-            Console.WriteLine(message);
-            choice = 0;
-            try
-            {
-                if (!int.TryParse(Console.ReadLine(), out choice))
-                    throw new FormatException("Choice should be an integer value!");
-                else if (choice < 0 || choice > 2)
+                Console.WriteLine($"Please enter the {chosenNumber}:");
+                string userInput = Console.ReadLine();
+                Console.WriteLine();
+
+                bool result = double.TryParse(userInput, out aNumber);
+
+                if (result == false)
                 {
-                    Console.WriteLine("InCorrect choice!");
-                    return false;
+                    Console.WriteLine("That's not a valid input please, please try again.\n");
                 }
-                return true;
+
+                else
+                {
+                    isValid = true;
+                    Console.WriteLine($"Your {chosenNumber} has been changed to: {aNumber}.\n");
+                }
             }
-            catch (FormatException ex)
-            {
-                Console.WriteLine(ex.Message);
-                return false;
-            }
-        }
-        static void ShowMenu()
-        {
-            Console.WriteLine("1. Enter triangle dimensions!");
-            Console.WriteLine("2. = Exit");
-            Console.WriteLine(" ");
+
+            return aNumber;
         }
 
-        static int GetLength()
-        {
-            int length = 0;
-            bool valid = TryGetLength("Please enter the Length:", out length);
-            while (!valid)
-            {
-                valid = TryGetLength("Please enter the Length:", out length);
-            }
-            return length;
-        }
-        static bool TryGetLength(string message, out int length)
-        {
-            Console.WriteLine(message);
-            length = 0;
-            try
-            {
-                if (!int.TryParse(Console.ReadLine(), out length))
-                    throw new FormatException("Length should be an integer value!");
-                else if (length < 0)
-                {
-                    Console.WriteLine("Length should be greater than 0!");
-                    return false;
-                }
-                return true;
-            }
-            catch (FormatException ex)
-            {
-                Console.WriteLine(ex.Message);
-                return false;
-            }
-        }
-        
-        static int GetBreadth()
-        {
-            int breadth = 0;
-            bool valid = TryGetBreadth("Please enter the Breadth:", out breadth);
-            while (!valid)
-            {
-                valid = TryGetBreadth("Please enter the Breadth:", out breadth);
-            }
-            return breadth;
-        }
-        static bool TryGetBreadth(string message, out int breadth)
-        {
-            Console.WriteLine(message);
-            breadth = 0;
-            try
-            {
-                if (!int.TryParse(Console.ReadLine(), out breadth))
-                    throw new FormatException("Breadth should be an integer value!");
-                else if (breadth < 0)
-                {
-                    Console.WriteLine("Breadth should be greater than 0!");
-                    return false;
-                }
-                return true;
-            }
-            catch (FormatException ex)
-            {
-                Console.WriteLine(ex.Message);
-                return false;
-            }
-        }
 
-        static int GetHeight()
+        static void Main(string[] args)
         {
-            int height = 0;
-            bool valid = TryGetHeight("Please enter the height:", out height);
-            while (!valid)
+            Calc c = new Calc();
+            bool validCalcSelect = false;
+            string calcSelection;
+            int selection;
+
+            while (validCalcSelect == false)
             {
-                valid = TryGetBreadth("Please enter the height:", out height);
-            }
-            return height;
-        }
-        static bool TryGetHeight(string message, out int height)
-        {
-            Console.WriteLine(message);
-            height = 0;
-            try
-            {
-                if (!int.TryParse(Console.ReadLine(), out height))
-                    throw new FormatException("Height should be an integer value");
-                else if (height < 0)
+                Console.WriteLine("1 = Use random numbers between 0 and 501 for your calculation\n");
+                Console.WriteLine("2 = Provide your own numbers\n");
+                Console.WriteLine("Choose a menu item to begin:");
+                calcSelection = Console.ReadLine();
+                Console.WriteLine();
+
+                if (calcSelection != "1" && calcSelection != "2")
                 {
-                    Console.WriteLine("Height should be greater than 0");
-                    return false;
+                    Console.WriteLine("That's not a valid selection, please try again.\n");
                 }
-                return true;
+                else if (int.Parse(calcSelection) == 1)
+                {
+                    validCalcSelect = true;
+                    Random random = new Random();
+                    double firstNumber;
+                    double secondNumber;
+
+                    firstNumber = Math.Round((random.NextDouble() * 500), 2);
+                    secondNumber = Math.Round((random.NextDouble() * 500), 2);
+
+                    Console.WriteLine($"Your random numbers are {firstNumber} and {secondNumber}.\n");
+                    Calc customCalc = new Calc(firstNumber, secondNumber);
+                    c = customCalc;
+
+                }
+                else if (int.Parse(calcSelection) == 2)
+                {
+                    validCalcSelect = true;
+
+                    double firstNumber;
+                    double secondNumber;
+
+                    firstNumber = ValidateUserInput("firstNumber");
+                    secondNumber = ValidateUserInput("secondNumber");
+
+                    Console.WriteLine($"Your custom numbers are {firstNumber} and {secondNumber}.\n");
+                    Calc customCalc = new Calc(firstNumber, secondNumber);
+                    c = customCalc;
+                }
             }
-            catch (FormatException ex)
+
+
+            selection = ValidateMenuSelection();
+
+            while (selection != 9)
             {
-                Console.WriteLine(ex.Message);
-                return false;
+                double result;
+
+                switch (selection)
+                {
+                    case 1:
+                        Console.WriteLine($"First Number is: {c.GetFirstNumber()}\n");
+                        break;
+                    case 2:
+                        result = ValidateUserInput("firstNumber");
+                        c.SetFirstNumber(result);
+                        break;
+                    case 3:
+                        Console.WriteLine($"Second Number is: {c.GetSecondNumber()}\n");
+                        break;
+                    case 4:
+                        result = ValidateUserInput("secondNumber");
+                        c.SetSecondNumber(result);
+                        break;
+                    case 5:
+                        Console.WriteLine($"The result of {c.GetFirstNumber()} + {c.GetSecondNumber()} is: {c.GetAddition()}\n");
+                        break;
+                    case 6:
+                        Console.WriteLine($"The result of {c.GetFirstNumber()} - {c.GetSecondNumber()} is: {c.GetSubtraction()}\n");
+                        break;
+                    case 7:
+                        Console.WriteLine($"The result of {c.GetFirstNumber()} * {c.GetSecondNumber()} is: {c.GetMultiplication()}\n");
+                        break;
+                    case 8:
+                        Console.WriteLine($"The result of {c.GetFirstNumber()} / {c.GetSecondNumber()} is: {c.GetDivision()}\n");
+                        break;
+                    default:
+                        break;
+                }
+
+                selection = ValidateMenuSelection();
+
             }
+
         }
     }
 }
-
-TriangleSolver 
-
-namespace Assignment_2
-{
-    public static class TriangleSolver
-    {
-
-        public static string Analyze(int length, int breadth, int height)
-        {
-            if (!CheckForValidTriangle(length, breadth, height))
-                return "Numbers does not form a triangle";
-
-            if (IsTriangleEquilateral(length, breadth, height))
-                return "Numbers form a triangle and the triangle is Equilateral";
-            else if (IsTriangleIsosceles(length, breadth, height))
-                return "Numbers form a triangle and the triangle is Isosceles";
-            else
-                return "Numbers form a triangle and the triangle is Scalene";
-        }
-       
-
-        private static bool CheckForValidTriangle(int length, int breadth, int height) //encapsulated the method deep inside this class because it acts as an helper to this class so doesnt need to expose it outside the class
-        {
-            if (length + breadth <= height || length + height <= breadth || breadth + height <= length)
-                return false;
-            else
-                return true;
-        }
-
-        private static bool IsTriangleEquilateral(int length, int breadth, int height) //encapsulated the method deep inside this class because it acts as an helper to this class so doesnt need to expose it outside the class
-        {
-            if (length == breadth && breadth == height)
-                return true;
-            return false;
-        }
-
-        private static bool IsTriangleIsosceles(int length, int breadth, int height) //encapsulated the method deep inside this class because it acts as an helper to this class so doesnt need to expose it outside the class
-        {
-            if (length == breadth || length == height || breadth == height)
-                return true;
-            return false;
-        }
-    }
-}
-
-TestCases
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
-using Assignment_2;
-
-
-namespace TestRun
-{
-    [TestFixture]
-    public class Class1
-    {
-        [Test]
-
-        public void InputValueOfLength5_InputValueOfBreadth5_InputValueOfHeight5_OutputEqualToEquilateralTriangle()
-        {
-
-            //Arrange
-            int length = 5;
-            int breadth = 5;
-            int height = 5;
-            string Triangle = "Numbers form a triangle and the triangle is Equilateral";
-
-            //Act
-            string checkTriangleType = TriangleSolver.Analyze(length, breadth, height);
-
-            //TriangleSolver testTriangle = new Triangle
-            //int l = TriangleSolver.GetLength();
-
-            //Assert
-            Assert.AreEqual(checkTriangleType, Triangle);
-        }
-
-        [Test]
-
-        public void InputValueOfLength66_InputValueOfBreadth5_InputValueOfHeight2_OutputEqualToNotATriangle()
-        {
-
-            //Arrange
-            int length = 66;
-            int breadth = 5;
-            int height = 2;
-            string Triangle = "Numbers does not form a triangle";
-
-            //Act
-            string checkTriangleType = TriangleSolver.Analyze(length, breadth, height);
-
-            //TriangleSolver testTriangle = new Triangle
-            //int l = TriangleSolver.GetLength();
-
-            //Assert
-            Assert.AreEqual(checkTriangleType, Triangle);
-        }
-
-        [Test]
-
-        public void InputValueOfLength20_InputValueOfBreadth20_InputValueOfHeight50_OutputEqualToIsoscelesTriangle()
-        {
-
-            //Arrange
-            int length = 20;
-            int breadth = 20;
-            int height = 30;
-            string Triangle = "Numbers form a triangle and the triangle is Isosceles";
-
-            //Act
-            string checkTriangleType = TriangleSolver.Analyze(length, breadth, height);
-
-            //TriangleSolver testTriangle = new Triangle
-            //int l = TriangleSolver.GetLength();
-
-            //Assert
-            Assert.AreEqual(checkTriangleType, Triangle);
-        }
-
-        [Test]
-
-        public void InputValueOfLength55_InputValueOfBreadth66_InputValueOfHeight77_OutputEqualToScaleneTriangle()
-        {
-
-            //Arrange
-            int length = 55;
-            int breadth = 66;
-            int height = 77;
-            string Triangle = "Numbers form a triangle and the triangle is Scalene";
-
-            //Act
-            string checkTriangleType = TriangleSolver.Analyze(length, breadth, height);
-
-            //TriangleSolver testTriangle = new Triangle
-            //int l = TriangleSolver.GetLength();
-
-            //Assert
-            Assert.AreEqual(checkTriangleType, Triangle);
-        }
-
-        [Test]
-
-        public void InputValueOfLength88_InputValueOfBreadth99_InputValueOfHeight109_OutputEqualToScaleneTriangle()
-        {
-
-            //Arrange
-            int length = 88;
-            int breadth = 99;
-            int height = 109;
-            string Triangle = "Numbers form a triangle and the triangle is Scalene";
-
-            //Act
-            string checkTriangleType = TriangleSolver.Analyze(length, breadth, height);
-
-            //TriangleSolver testTriangle = new Triangle
-            //int l = TriangleSolver.GetLength();
-
-            //Assert
-            Assert.AreEqual(checkTriangleType, Triangle);
-        }
-
-        [Test]
-
-        public void InputValueOfLength50_InputValueOfBreadth50_InputValueOfHeight70_OutputEqualToIsoscelesTriangle()
-        {
-
-            //Arrange
-            int length = 50;
-            int breadth = 50;
-            int height = 70;
-            string Triangle = "Numbers form a triangle and the triangle is Isosceles";
-
-            //Act
-            string checkTriangleType = TriangleSolver.Analyze(length, breadth, height);
-
-            //TriangleSolver testTriangle = new Triangle
-            //int l = TriangleSolver.GetLength();
-
-            //Assert
-            Assert.AreEqual(checkTriangleType, Triangle);
-        }
-
-        [Test]
-
-        public void InputValueOfLength16_InputValueOfBreadth0_InputValueOfHeight2_OutputEqualToNotATriangle()
-        {
-
-            //Arrange
-            int length = 16;
-            int breadth = 0;
-            int height = 2;
-            string Triangle = "Numbers does not form a triangle";
-
-            //Act
-            string checkTriangleType = TriangleSolver.Analyze(length, breadth, height);
-
-            //TriangleSolver testTriangle = new Triangle
-            //int l = TriangleSolver.GetLength();
-
-            //Assert
-            Assert.AreEqual(checkTriangleType, Triangle);
-        }
-
-        [Test]
-
-        public void InputValueOfLength20_InputValueOfBreadth20_InputValueOfHeight20_OutputEqualToEquilateralTriangle()
-        {
-
-            //Arrange
-            int length = 20;
-            int breadth = 20;
-            int height = 20;
-            string Triangle = "Numbers form a triangle and the triangle is Equilateral";
-
-            //Act
-            string checkTriangleType = TriangleSolver.Analyze(length, breadth, height);
-
-            //TriangleSolver testTriangle = new Triangle
-            //int l = TriangleSolver.GetLength();
-
-            //Assert
-            Assert.AreEqual(checkTriangleType, Triangle);
-        }
-
-
-
-    }
-}
-
